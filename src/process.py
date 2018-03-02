@@ -72,7 +72,6 @@ class ImageProcess:
         blurred2 = cv2.GaussianBlur(opening2, (15,15), 3)
 
         threshold2 = cv2.inRange(blurred2, 5,130)
-        #masked2 = cv2.bitwise_and(self.__blurred, threshold2)
 
         self.__bw = threshold2
 
@@ -258,10 +257,10 @@ class CollectProcess:
         else:
             det_count = sum(self.__df['detections'].tolist())
             mean_inten = np.mean(self.__df['intensity'].tolist())
-            mean_time = np.mean(self.__df['process_time'].tolist())
+            mean_time = float(np.mean(self.__df['process_time'].tolist()))
             return("\nProcess completed\n\n"
-                   "Collected total of {:d} samples\n"
-                   "Detection count: {:d}\n"
+                   "Collected total of {:} samples\n"
+                   "Detection count: {:}\n"
                    "Average intensity: {:.5f}\n"
                    "Average time: {:.5f}\n".format(
                        self.__index,
@@ -306,7 +305,7 @@ class CollectProcess:
         print(self.info())
         if not self.__df.empty:
             csv_name = 'process_{:d}.csv'.format(self.__file_index)
-            self.__df.to_csv(os.path.join(self.__dp.dataframe, csv_name))
+            self.__df.to_csv(os.path.join(self.__dp.dataframes, csv_name))
         else:
             shutil.rmtree(self.__dir)
 
@@ -348,7 +347,7 @@ class CollectProcess:
         process_time = time() - process_time
 
         if process.detections:
-            print("Detected.")
+            print("Detection count: {:d}".format(self.__index))
             new_row = [len(process.detections), intensity, len(kp), process_time]
 
             self.__df.loc[self.__index] = new_row

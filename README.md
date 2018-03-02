@@ -34,7 +34,7 @@ Basic usage for collecting and using Brute Force detection:
 (Optional)
 - Python 64-bit
 - Tensorflow [object_detection](https://github.com/tensorflow/models/tree/master/research/object_detection) for judge.
-- [RPNplut](https://github.com/huangshiyu13/RPNplus)
+- [RPNplus](https://github.com/huangshiyu13/RPNplus)
 
 
 ### Examples
