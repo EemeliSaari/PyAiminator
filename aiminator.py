@@ -8,7 +8,7 @@ from examples.static_images import samples
 from src.judge import Judge
 from src.paths import DataPath
 from src.process import CollectProcess
-from src.rpn_model import RPNplus
+
 try:
     from src.setup import setup_tensor
 except ImportError:
@@ -16,9 +16,7 @@ except ImportError:
 
 
 def collect(mode, w=800, h=600, lim=None):
-
-    print(w, h)
-
+    """Data collection process."""
     c = CollectProcess('debug', lim=lim)
 
     if mode == 'video':
@@ -28,17 +26,12 @@ def collect(mode, w=800, h=600, lim=None):
 
 
 def judge(clf):
-
+    """Judge/evaluate process for collected data"""
     j = Judge()
 
     if clf == 'tensorflow':
         dg, ci = setup_tensor()
         j.evaluate_tensorflow(dg, ci)
-
-    elif clf == 'RPN':
-        RPNplus()
-
-
 
 
 def main():

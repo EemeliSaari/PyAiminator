@@ -9,7 +9,11 @@ import tensorflow as tf
 import object_detection.utils.label_map_util as label_map_util
 import six.moves.urllib as urllib
 
+"""
+Source for setup_tensor can be found here: https://github.com/tensorflow/models/blob/master/research/object_detection/object_detection_tutorial.ipynb
 
+Function is heavily modified from the original and is not intended for any commercial purposes.
+"""
 def setup_tensor():
     # Model to download.
     MODEL_NAME = 'ssd_mobilenet_v1_coco_11_06_2017'
