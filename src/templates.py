@@ -52,7 +52,7 @@ class Template:
         
         norm_img = norm.normalize_image(self.img)
         gray = cv2.cvtColor(norm_img, cv2.COLOR_BGR2GRAY)
-        blurred = cv2.medianBlur(gray, 7)
+        blurred = cv2.medianBlur(gray, 11)
 
         mask = cv2.inRange(gray, 20, 100)
         masked = cv2.bitwise_and(gray, mask)
