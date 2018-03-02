@@ -11,3 +11,4 @@
 *.pb
 *.exe
 *.csv
+*models/
