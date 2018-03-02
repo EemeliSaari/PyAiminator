@@ -68,8 +68,7 @@ class ImageProcess:
         threshold1 = cv2.inRange(opening1, 100, 170)
         masked1 = cv2.bitwise_and(self.__blurred, threshold1)
 
-        opening2 = cv2.morphologyEx(masked1, cv2.MORPH_TOPHAT, kernel)
-        blurred2 = cv2.GaussianBlur(opening2, (15,15), 3)
+        blurred2 = cv2.GaussianBlur(masked1, (15,15), 3)
 
         threshold2 = cv2.inRange(blurred2, 5,130)
 

@@ -12,7 +12,7 @@ def steps(example=0):
 
     options = [
         'norm', 'gray', 'blurred1', 'opening1', 
-        'threshold1', 'masked1', 'opening2', 'blurred2', 
+        'threshold1', 'masked1', 'blurred2', 
         'threshold2'
     ]
 
